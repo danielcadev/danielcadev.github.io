@@ -1,0 +1,243 @@
+---
+import { ArrowDown, ArrowUpRight, BadgeCheck, GitPullRequest, Mail, MapPin, ShieldCheck, Terminal } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCase from '../components/ProjectCase.astro';
+
+const metrics = [
+  { value: '309k+', label: 'unique source lines audited' },
+  { value: '18', label: 'owned repositories measured' },
+  { value: '24', label: 'high / critical findings' },
+  { value: '3', label: 'production travel platforms' },
+];
+
+const supportingSystems = [
+  {
+    name: 'TripEuropa B2B',
+    type: 'Production platform',
+    description: 'International tour-operator portal. Led architecture, typed data flows, production readiness, and remediation of seven high-severity findings.',
+    href: 'https://tripeuropa.com',
+  },
+  {
+    name: 'CMS Nova',
+    type: 'Platform foundation',
+    description: 'Schema-driven headless CMS foundation with localization, hybrid persistence, media workflows, and role-based administration.',
+    href: 'https://github.com/danielcadev/cms-nova-template',
+  },
+  {
+    name: 'Codex Desktop Linux',
+    type: 'Open-source contribution',
+    description: 'Updater compatibility work covering legacy bundles, Linux package rebuilds, defensive fallbacks, and regression tests.',
+    href: 'https://github.com/ilysenko/codex-desktop-linux/pull/991',
+  },
+];
+
+const principles = [
+  { number: '01', title: 'Model boundaries before features.', body: 'I start with ownership, trust, data flow, failure modes, and operational constraints. The interface comes after the system has a shape.' },
+  { number: '02', title: 'Keep authorization close to the action.', body: 'Authentication is not authorization. Every mutation, route, and storage path must preserve tenant, role, and ownership boundaries.' },
+  { number: '03', title: 'Make AI output earn trust.', body: 'Coding agents accelerate implementation, but generated changes still pass typed contracts, tests, security review, and human judgment.' },
+  { number: '04', title: 'Ship evidence, not adjectives.', body: 'Production behavior, reproducible measurements, reviewable changes, and explicit tradeoffs communicate more than inflated titles.' },
+];
+---
+
+<BaseLayout>
+  <section id="top" class="mx-auto flex w-full max-w-[1440px] flex-col justify-between px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-16 lg:px-12">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-9">
+        <div class="mb-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase text-muted">
+          <span class="flex items-center gap-2"><span class="h-2 w-2 bg-positive"></span>Software engineer</span>
+          <span class="flex items-center gap-2"><MapPin size={14} stroke-width={1.8} />Colombia / remote</span>
+        </div>
+        <h1 class="max-w-6xl text-6xl font-semibold leading-[0.95] md:text-8xl lg:text-9xl">Daniel<br />Castrillon</h1>
+      </div>
+      <aside class="hidden flex-col justify-end border-l-2 border-accent pl-5 md:flex lg:col-span-3 lg:mb-3">
+        <p class="font-mono text-xs uppercase text-accent">Current focus</p>
+        <p class="mt-3 text-base leading-7 text-muted">Platform architecture, application security, and dependable AI-assisted engineering.</p>
+      </aside>
+    </div>
+
+    <div class="mt-8 grid gap-6 border-t border-line pt-6 md:mt-12 md:grid-cols-12 md:gap-8 lg:mt-16">
+      <p class="max-w-3xl text-xl font-medium leading-9 md:col-span-8 md:text-3xl md:leading-10">
+        I build production software across product architecture, data, authentication, cloud delivery, and the engineering systems that keep change safe.
+      </p>
+      <div class="flex flex-col items-start justify-between gap-6 md:col-span-4 md:items-end">
+        <div class="flex flex-wrap gap-x-6 gap-y-3 md:justify-end">
+          <a class="text-link" href="#work">Selected work <ArrowDown size={16} stroke-width={1.8} /></a>
+          <a class="text-link" href="https://github.com/danielcadev" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={16} stroke-width={1.8} /></a>
+        </div>
+        <p class="hidden max-w-xs text-left text-sm leading-6 text-muted md:block md:text-right">Lead software architecture and AI engineering at Mitiquete SAS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Engineering metrics" class="border-y border-line bg-surface">
+    <div class="mx-auto grid w-full max-w-[1440px] grid-cols-2 px-5 md:px-8 lg:grid-cols-4 lg:px-12">
+      {metrics.map((metric, index) => (
+        <div class:list={[
+          'min-h-36 py-7 md:min-h-40 md:py-9',
+          index % 2 === 1 && 'border-l border-line pl-5 md:pl-8',
+          index >= 2 && 'border-t border-line lg:border-t-0',
+          index > 0 && 'lg:border-l lg:border-line lg:pl-8',
+        ]}>
+          <p class="text-4xl font-semibold md:text-5xl">{metric.value}</p>
+          <p class="mt-3 max-w-[12rem] font-mono text-xs leading-5 text-muted">{metric.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="work" class="bg-page">
+    <div class="mx-auto w-full max-w-[1440px] px-5 py-20 md:px-8 md:py-28 lg:px-12 lg:py-32">
+      <div class="mb-16 grid gap-6 md:grid-cols-12 md:items-end lg:mb-24">
+        <div class="md:col-span-8">
+          <p class="section-label">Selected work</p>
+          <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-6xl">Systems with real operational weight.</h2>
+        </div>
+        <p class="max-w-md text-base leading-7 text-muted md:col-span-4 md:justify-self-end">These are not interface exercises. They combine public product surfaces with private operational systems, data, permissions, migrations, and deployment work.</p>
+      </div>
+
+      <ProjectCase
+        index="01"
+        category="Travel platform"
+        title="Mitiquete"
+        summary="A production travel platform spanning global discovery, booking operations, content, authentication, media, and cloud delivery."
+        image="/images/mitiquete-product.jpg"
+        imageAlt="Mitiquete production website showing its global travel search experience"
+        details={[
+          { label: 'Role', value: 'Lead software architecture and AI-assisted engineering' },
+          { label: 'System', value: 'Next.js monorepo, TypeScript, PostgreSQL, Prisma, AWS S3 and SES' },
+          { label: 'Scope', value: 'Product architecture, CMS, booking workflows, migrations, security, and delivery' },
+          { label: 'Security', value: 'Zero-Trust RBAC and remediation of 17 critical findings across production surfaces' },
+        ]}
+        links={[{ label: 'Visit production site', href: 'https://mitiqueteonline.com' }]}
+      />
+
+      <ProjectCase
+        index="02"
+        category="Content platform"
+        title="Conociendo Colombia"
+        summary="A tourism publishing and itinerary platform designed around structured content, arrival points, regional discovery, and reusable platform foundations."
+        image="/images/conociendo-colombia-product.jpg"
+        imageAlt="Conociendo Colombia production website showing its city-of-arrival route builder"
+        imagePosition="left"
+        details={[
+          { label: 'Role', value: 'Platform architecture and full-stack engineering' },
+          { label: 'System', value: 'Next.js, TypeScript, PostgreSQL, Prisma, localized content, and media workflows' },
+          { label: 'Scope', value: 'Structured publishing, route discovery, administration, data design, and shared CMS components' },
+          { label: 'Focus', value: 'Editorial clarity for travelers without sacrificing operational control for the business' },
+        ]}
+        links={[{ label: 'Visit production site', href: 'https://conociendocolombia.com' }]}
+      />
+    </div>
+  </section>
+
+  <section class="border-y border-inverse-line bg-ink text-page">
+    <div class="mx-auto w-full max-w-[1440px] px-5 py-20 md:px-8 md:py-28 lg:px-12">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <p class="font-mono text-xs uppercase text-inverse-muted">Supporting systems</p>
+          <h2 class="mt-5 max-w-md text-4xl font-semibold leading-tight md:text-5xl">More than the two public surfaces.</h2>
+        </div>
+        <div class="divide-y divide-inverse-line border-y border-inverse-line lg:col-span-8">
+          {supportingSystems.map((system) => (
+            <a href={system.href} target="_blank" rel="noreferrer" class="group grid gap-4 py-7 text-page no-underline transition-colors hover:text-signal md:grid-cols-[12rem_1fr_2rem] md:items-start">
+              <div>
+                <p class="text-lg font-semibold">{system.name}</p>
+                <p class="mt-1 font-mono text-[11px] uppercase text-inverse-muted">{system.type}</p>
+              </div>
+              <p class="max-w-2xl text-sm leading-7 text-inverse-muted group-hover:text-page">{system.description}</p>
+              <ArrowUpRight class="hidden md:block" size={20} stroke-width={1.6} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="bg-page">
+    <div class="mx-auto w-full max-w-[1440px] px-5 py-20 md:px-8 md:py-28 lg:px-12 lg:py-32">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <p class="section-label">Engineering approach</p>
+          <h2 class="mt-5 max-w-lg text-4xl font-semibold leading-tight md:text-5xl">How I make complex work reviewable.</h2>
+        </div>
+        <ol class="border-t border-line lg:col-span-8">
+          {principles.map((principle) => (
+            <li class="grid gap-4 border-b border-line py-8 md:grid-cols-[4rem_1fr_1fr] md:gap-8">
+              <span class="font-mono text-xs text-accent">{principle.number}</span>
+              <h3 class="text-xl font-semibold leading-7">{principle.title}</h3>
+              <p class="text-sm leading-7 text-muted">{principle.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-source" class="border-y border-line bg-surface">
+    <div class="mx-auto grid w-full max-w-[1440px] gap-12 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:px-12">
+      <div class="lg:col-span-5">
+        <div class="flex h-12 w-12 items-center justify-center border border-line bg-page text-accent"><Terminal size={22} stroke-width={1.7} /></div>
+        <p class="section-label mt-8">Open source + research</p>
+        <h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight md:text-5xl">Work that can be inspected and challenged.</h2>
+      </div>
+      <div class="space-y-10 lg:col-span-7">
+        <div class="border-l-2 border-signal pl-6">
+          <div class="flex items-center gap-3 text-sm font-semibold"><GitPullRequest size={18} stroke-width={1.8} />Codex Desktop Linux</div>
+          <p class="mt-4 max-w-2xl text-base leading-8 text-muted">My updater compatibility pull request adds defensive support for legacy bundle inputs and Linux package rebuilds, with regression coverage across RPM, Debian, Pacman, and Nix workflows.</p>
+          <a class="text-link mt-5" href="https://github.com/ilysenko/codex-desktop-linux/pull/991" target="_blank" rel="noreferrer">Inspect pull request #991 <ArrowUpRight size={16} stroke-width={1.8} /></a>
+        </div>
+        <div class="grid gap-8 border-t border-line pt-10 md:grid-cols-2">
+          <div>
+            <div class="flex items-center gap-3 text-sm font-semibold"><ShieldCheck size={18} stroke-width={1.8} />Application security</div>
+            <p class="mt-4 text-sm leading-7 text-muted">Documented and drove remediation of 24 high-severity or critical findings across production systems, with emphasis on authorization dominance and exposed mutation surfaces.</p>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 text-sm font-semibold"><BadgeCheck size={18} stroke-width={1.8} />Research communication</div>
+            <p class="mt-4 text-sm leading-7 text-muted">Delivered an invited talk at the Max Planck Institute for Security and Privacy on structural security risks in AI-assisted software systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bg-page">
+    <div class="mx-auto grid w-full max-w-[1440px] gap-12 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:px-12 lg:py-32">
+      <div class="lg:col-span-4">
+        <p class="section-label">About</p>
+        <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">Production first. Education in support.</h2>
+      </div>
+      <div class="lg:col-span-8">
+        <p class="max-w-4xl text-2xl font-medium leading-9 md:text-3xl md:leading-10">I am a Colombian software engineer working across platform architecture, secure product delivery, and AI-assisted development. I care about systems that remain understandable after the demo is over.</p>
+        <div class="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-3">
+          <div><p class="font-mono text-xs uppercase text-muted">Primary stack</p><p class="mt-3 text-sm leading-7">TypeScript, Next.js, React, PostgreSQL, Prisma, Node.js</p></div>
+          <div><p class="font-mono text-xs uppercase text-muted">Additional work</p><p class="mt-3 text-sm leading-7">Go, Python, C#, SQL, Linux, Docker, AWS, Vercel</p></div>
+          <div><p class="font-mono text-xs uppercase text-muted">Education</p><p class="mt-3 text-sm leading-7">B.Sc. Software Engineering, expected 2027 · GPA 4.59 / 5.0</p></div>
+        </div>
+        <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4">
+          <a class="text-link" href="https://github.com/danielcadev/danielcadev/blob/main/CODEBASE_METRICS.md" target="_blank" rel="noreferrer">Measurement methodology <ArrowUpRight size={16} stroke-width={1.8} /></a>
+          <a class="text-link" href="https://github.com/danielcadev" target="_blank" rel="noreferrer">GitHub profile <ArrowUpRight size={16} stroke-width={1.8} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-inverse-line bg-ink text-page">
+    <div class="mx-auto w-full max-w-[1440px] px-5 py-16 md:px-8 md:py-20 lg:px-12">
+      <div class="grid gap-12 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-8">
+          <p class="font-mono text-xs uppercase text-inverse-muted">Start a conversation</p>
+          <h2 class="mt-5 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">Building something that needs technical ownership?</h2>
+          <a class="mt-8 inline-flex items-center gap-3 text-xl font-semibold text-signal no-underline" href="mailto:daniel.ca.pe207@gmail.com"><Mail size={22} stroke-width={1.8} />daniel.ca.pe207@gmail.com</a>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-inverse-muted md:col-span-4 md:items-end">
+          <p>Madrid, Cundinamarca, Colombia</p>
+          <p>Available for remote collaboration</p>
+        </div>
+      </div>
+      <div class="mt-16 flex flex-col gap-4 border-t border-inverse-line pt-6 font-mono text-[11px] text-inverse-muted md:flex-row md:items-center md:justify-between">
+        <p>© {new Date().getFullYear()} Daniel Castrillon</p>
+        <p>Built with Astro, TypeScript, and Tailwind CSS</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
