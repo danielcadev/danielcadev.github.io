@@ -6,7 +6,7 @@ const metrics = [
   { value: 'v0.1.8', label: 'Secure Engine stable release' },
   { value: 'Rust', label: 'local-first security tooling' },
   { value: 'Linux', label: 'upstream compatibility work' },
-  { value: 'Private', label: 'coordinated security disclosure' },
+  { value: 'Invited', label: 'security research seminar at MPI-SP' },
 ];
 
 const selectedWork = [
@@ -24,6 +24,13 @@ const selectedWork = [
       { label: 'Engine v0.1.8', href: 'https://github.com/usesecure/secure-engine/releases/tag/v0.1.8' },
       { label: 'Bench', href: 'https://github.com/usesecure/secure-bench' },
       { label: 'Skill', href: 'https://github.com/usesecure/secure-skill' },
+    ],
+  },
+  {
+    project: 'Security research & communication',
+    scope: 'Delivered an invited technical talk to researchers at the Max Planck Institute for Security and Privacy on structural security failures in AI-assisted software systems.',
+    evidence: [
+      { label: 'Max Planck Institute for Security and Privacy', href: 'https://www.mpi-sp.org/' },
     ],
   },
   {
@@ -64,7 +71,7 @@ const principles = [
       </div>
       <aside class="hidden flex-col justify-end border-l-2 border-accent pl-5 md:flex lg:col-span-3 lg:mb-3">
         <p class="font-mono text-xs uppercase text-accent">Current focus</p>
-        <p class="mt-3 text-base leading-7 text-muted">Product security, Rust tooling, Linux infrastructure, and dependable AI-assisted engineering.</p>
+        <p class="mt-3 text-base leading-7 text-muted">Product security, Rust and Linux tooling, applied security research, and dependable AI-assisted engineering.</p>
       </aside>
     </div>
 
@@ -180,8 +187,8 @@ const principles = [
             <p class="mt-4 text-sm leading-7 text-muted">Built Secure Engine and Secure Bench, and reported reproducible authentication and authorization issues through coordinated private disclosure channels.</p>
           </div>
           <div>
-            <div class="flex items-center gap-3 text-sm font-semibold"><BadgeCheck size={18} stroke-width={1.8} />Research communication</div>
-            <p class="mt-4 text-sm leading-7 text-muted">Delivered an invited talk at the Max Planck Institute for Security and Privacy on structural security risks in AI-assisted software systems.</p>
+            <div class="flex items-center gap-3 text-sm font-semibold"><BadgeCheck size={18} stroke-width={1.8} />Invited research seminar</div>
+            <p class="mt-4 text-sm leading-7 text-muted">Presented structural security failures in AI-assisted software systems to researchers at the Max Planck Institute for Security and Privacy.</p>
           </div>
         </div>
       </div>
