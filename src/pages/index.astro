@@ -12,12 +12,6 @@ const metrics = [
 
 const supportingSystems = [
   {
-    name: 'UseSecure',
-    type: 'Security infrastructure',
-    description: 'A local-first Rust analyzer, independently frozen benchmarks, and a reusable workflow for evidence-backed review and remediation.',
-    href: 'https://github.com/usesecure',
-  },
-  {
     name: 'Open-source contributions',
     type: 'Upstream engineering',
     description: 'Focused fixes across Rust and Linux tooling, structured-data serialization, CLI behavior, desktop integration, CI, dependencies, and regression coverage.',
@@ -28,6 +22,12 @@ const supportingSystems = [
     type: 'Platform foundation',
     description: 'Schema-driven headless CMS foundation with localization, hybrid persistence, media workflows, and role-based administration.',
     href: 'https://github.com/danielcadev/cms-nova-template',
+  },
+  {
+    name: 'TripEuropa B2B',
+    type: 'Production operations',
+    description: 'International tour-operator platform with typed data flows, quotation and booking operations, production hardening, and security remediation.',
+    href: 'https://tripeuropa.eu',
   },
 ];
 
@@ -90,9 +90,9 @@ const principles = [
       <div class="mb-16 grid gap-6 md:grid-cols-12 md:items-end lg:mb-24">
         <div class="md:col-span-8">
           <p class="section-label">Selected work</p>
-          <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-6xl">Modernization measured by operational outcomes.</h2>
+          <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-6xl">Engineering measured by operational outcomes.</h2>
         </div>
-        <p class="max-w-md text-base leading-7 text-muted md:col-span-4 md:justify-self-end">I turn fragmented legacy workflows into maintainable products while protecting search visibility, business continuity, data, and the way teams already operate.</p>
+        <p class="max-w-md text-base leading-7 text-muted md:col-span-4 md:justify-self-end">From product renewal to security infrastructure, I build maintainable systems while protecting continuity, data, trust boundaries, and the way teams already operate.</p>
       </div>
 
       <ProjectCase
@@ -121,6 +121,24 @@ const principles = [
           { label: 'Outcome', value: 'Gave customers a clearer planning journey while giving the business stronger editorial and operational control' },
         ]}
         links={[{ label: 'Visit production site', href: 'https://conociendocolombia.com' }]}
+      />
+
+      <ProjectCase
+        index="03"
+        category="Security infrastructure"
+        title="UseSecure"
+        summary="A local-first security engineering system that combines structural analysis, reproducible measurement, and a disciplined workflow for validating and communicating real vulnerabilities."
+        details={[
+          { label: 'Engine', value: 'Built a Rust analyzer with deterministic evidence, bounded analysis, privacy-preserving local execution, and stable machine-readable contracts' },
+          { label: 'Bench', value: 'Designed blinded holdouts, one-shot scanner campaigns, immutable evidence, independent verification, and corrected scoring without collapsing incomparable lanes' },
+          { label: 'Workflow', value: 'Created a reusable review method that joins repository context, attacker-path validation, exploitability checks, compatibility review, and publication gates' },
+          { label: 'Delivery', value: 'Published signed, reproducible Fedora artifacts with verified provenance while keeping claims tied to the evidence that actually supports them' },
+        ]}
+        links={[
+          { label: 'Engine v0.1.8', href: 'https://github.com/usesecure/secure-engine/releases/tag/v0.1.8' },
+          { label: 'Secure Bench', href: 'https://github.com/usesecure/secure-bench' },
+          { label: 'Review workflow', href: 'https://github.com/usesecure/secure-skill' },
+        ]}
       />
     </div>
   </section>
